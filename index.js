@@ -16,12 +16,12 @@ app.get("/courses", (req, res) => {
 });
 app.get("/courses/:id", (req, res) => {
   const id = req.params.id;
-  const selectedCourse = courses.find((c) => c.id === id);
+  const selectedCourse = courses.find((c) => c.id == id);
   res.send(selectedCourse);
 });
 app.get("/category/:id", (req, res) => {
   const id = req.params.id;
-  const selectedCategory = courses.find((c) => c.id === id);
+  const selectedCategory = courses.filter((c) => c.category_id == id);
   res.send(selectedCategory);
 });
 app.listen(Port, () => {
