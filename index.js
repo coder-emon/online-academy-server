@@ -24,6 +24,15 @@ app.get("/category/:id", (req, res) => {
   const selectedCategory = courses.filter((c) => c.category_id == id);
   res.send(selectedCategory);
 });
+const blogs = require("./data/blogs.json");
+app.get("/blogs", (req, res) => {
+  res.send(blogs);
+});
+app.get("/blog/:id", (req, res) => {
+  const id = req.params.id;
+  const selectedBLog = blogs.find((b) => b.id == id);
+  res.send(selectedBLog);
+});
 app.listen(Port, () => {
   console.log("server running on port", Port);
 });
